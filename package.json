@@ -1,0 +1,34 @@
+{
+    "name": "GITBOOK",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "gitbook-cli": "^2.3.2",
+        "node-fetch": "^2.1.2",
+        "simple-git": "^1.96.0"
+    },
+    "devDependencies": {
+        "eslint": "^4.19.1",
+        "eslint-config-airbnb-base": "^12.1.0",
+        "eslint-config-prettier": "^2.9.0",
+        "eslint-config-standard": "^11.0.0",
+        "eslint-plugin-import": "^2.12.0",
+        "eslint-plugin-node": "^6.0.1",
+        "eslint-plugin-promise": "^3.8.0",
+        "eslint-plugin-standard": "^3.1.0",
+        "prettier": "^1.13.6"
+    },
+    "eslintConfig": {
+        "extends": [
+            "airbnb-base",
+            "prettier"
+        ]
+    }
+}
