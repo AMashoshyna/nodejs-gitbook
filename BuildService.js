@@ -13,4 +13,4 @@ class BuildService {
         }
     }
 }
-module.exports = new BuildService();
+module.exports = BuildService;

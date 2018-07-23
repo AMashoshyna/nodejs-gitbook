@@ -1,9 +1,11 @@
-const gitService = require("./gitService");
-const buildService = require("./buildService");
+
+const async = require("async");
 
 class BuildQueue {
-    constructor() {
-        this.repoQueue = [];
+    constructor(params) {
+        this.gitService = params.gitService;
+        this.buildService = params.buildService;
+        this.repoQueue = async.queue(this.build, 1);
         this.builRuns = false;
     }
 
@@ -23,9 +25,9 @@ class BuildQueue {
             );
         }
     }
-    build(repo) {
-        gitService.checkout(repo).then(() => {
-            buildService.buildBook(repo.name);
+    build(repo, cb) {
+        return this.gitService.checkout(repo).then(() => {
+            return this.buildService.buildBook(repo.name);
         });
     }
     startBuild() {
@@ -40,4 +42,4 @@ class BuildQueue {
     }
 }
 
-module.exports = new BuildQueue();
+module.exports = BuildQueue;

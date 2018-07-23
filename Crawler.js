@@ -1,5 +1,3 @@
-const gitApiService = require("./gitApiService");
-const buildQueue = require("./buildQueue");
 const db = require("./db");
 
 const { isLastCommitChanged } = db;
@@ -8,6 +6,8 @@ let interval;
 class Crawler {
     constructor(options) {
         this.delay = options.delay;
+        this.gitApiService = options.gitApiService;
+        this.buildQueue = options.buildQueue;
     }
     start() {
         interval = setInterval(this.search, this.delay);
@@ -16,13 +16,13 @@ class Crawler {
         clearInterval(interval);
     }
     search() {
-        gitApiService.getGitBookRepos().then(reposList => {
+        return this.gitApiService.getGitBookRepos().then(reposList => {
             console.log("Repos list: ", reposList);
             return Promise.all(
                 reposList.map(repo => {
                     return isLastCommitChanged(repo.name).then(result => {
                         if (result) {
-                            return buildQueue.add(repo);
+                            return this.buildQueue.add(repo);
                         }
                     });
                 })

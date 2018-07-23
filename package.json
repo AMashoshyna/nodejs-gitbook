@@ -10,12 +10,13 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "async": "^2.6.1",
         "gitbook-cli": "^2.3.2",
         "mkdirp": "^0.5.1",
         "mkdirp-promise": "^5.0.1",
         "node-fetch": "^2.1.2",
-        "simple-git": "^1.96.0",
         "sequelize": "^4.37.6",
+        "simple-git": "^1.96.0",
         "sqlite3": "^4.0.0"
     },
     "devDependencies": {
