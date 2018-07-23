@@ -4,6 +4,7 @@ const buildService = require("./buildService");
 class BuildQueue {
     constructor() {
         this.repoQueue = [];
+        this.builRuns = false;
     }
 
     add(inputData) {
@@ -28,11 +29,14 @@ class BuildQueue {
         });
     }
     startBuild() {
-        // while (true) {
-        if (this.repoQueue.length > 0) {
-            this.build(this.repoQueue.shift());
+        while (this.builRuns) {
+            if (this.repoQueue.length > 0) {
+                this.build(this.repoQueue.shift());
+            }
         }
-        // }
+    }
+    stopBuild() {
+        this.builRuns = false;
     }
 }
 
