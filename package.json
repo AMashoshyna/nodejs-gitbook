@@ -4,17 +4,22 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "node_modules/mocha/bin/mocha -R spec test"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
         "gitbook-cli": "^2.3.2",
+        "mkdirp": "^0.5.1",
+        "mkdirp-promise": "^5.0.1",
         "node-fetch": "^2.1.2",
-        "simple-git": "^1.96.0"
+        "simple-git": "^1.96.0",
+        "sequelize": "^4.37.6",
+        "sqlite3": "^4.0.0"
     },
     "devDependencies": {
+        "chai": "^4.1.2",
         "eslint": "^4.19.1",
         "eslint-config-airbnb-base": "^12.1.0",
         "eslint-config-prettier": "^2.9.0",
@@ -23,7 +28,10 @@
         "eslint-plugin-node": "^6.0.1",
         "eslint-plugin-promise": "^3.8.0",
         "eslint-plugin-standard": "^3.1.0",
-        "prettier": "^1.13.6"
+        "mocha": "^5.2.0",
+        "prettier": "^1.13.6",
+        "proxyquire": "^2.0.1",
+        "sinon": "^6.1.4"
     },
     "eslintConfig": {
         "extends": [
